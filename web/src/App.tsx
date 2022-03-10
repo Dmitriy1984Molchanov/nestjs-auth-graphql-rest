@@ -35,7 +35,7 @@ export const App: React.FC = () => {
 						if (accessToken) {
 							operation.setContext({
 								headers: {
-									authorization: accessToken,
+									authorization: `Bearer ${accessToken}`,
 								},
 							})
 						}
@@ -51,7 +51,7 @@ export const App: React.FC = () => {
 				},
 			})
 
-			apolloClient.onClearStore(async () => {
+			apolloClient.onResetStore(async () => {
 				await persistor.purge()
 			})
 

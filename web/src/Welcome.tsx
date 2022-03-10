@@ -18,7 +18,8 @@ export const Welcome: React.FC<{
 			Welcome <b>{user.fullname}</b>! To logout click&nbsp;
 			<Link
 				to='/'
-				onClick={async () => {
+				onClick={async e => {
+					e.preventDefault()
 					deleteAccessToken()
 					await client.resetStore()
 				}}
